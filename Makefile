@@ -1,29 +1,41 @@
 GRIP=python -m grip
 MKDIR_P=mkdir -p
 
+EXPECT_REPO=https://github.com/mjackson/expect
+
+ENZYME_REPO=https://github.com/airbnb/enzyme
+
+IMMUTABLE_REPO=https://github.com/facebook/immutable-js
+
 MOCHA_REPO=https://github.com/mochajs/mochajs.github.io
 MOCHA_SOURCE=modules/mochajs.github.io
 MOCHA_DEST=_output/mochajs
 
-MOMENT_REPO=https://github.com/mochajs/mochajs.github.io
+MOMENT_REPO=https://github.com/moment/momentjs.com
 MOMENT_SOURCE=momentjs.com
 MOMENT_DEST=_output/momentjs
 
+NORMALIZR_REPO=https://github.com/paularmstrong/normalizr
 NORMALIZR_SOURCE=normalizr
 NORMALIZR_DEST=_output/normalizr
 
+REACT_REPO=https://github.com/facebook/react
 REACT_SOURCE=react/docs
 REACT_DEST=_output/react
 
+REDUX_REPO=http://github.com/reactjs/redux
 REDUX_SOURCE=redux
 REDUX_DEST=_output/redux
 
+REDUXAPI_REPO=https://github.com/agraboso/redux-api-middleware
 REDUXAPI_SOURCE=redux-api-middleware
 REDUXAPI_DEST=_output/redux-api-middleware
 
+RESELECT_REPO=https://github.com/reactjs/reselect
 RESELECT_SOURCE=reselect
 RESELECT_DEST=_output/reselect
 
+WEBPACT_REPO=https://github.com/webpack/webpack.js.org
 WEBPACK_SOURCE=webpack.js.org
 WEBPACK_DEST=_output/webpack
 
