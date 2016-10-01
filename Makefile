@@ -1,11 +1,20 @@
 GRIP=python -m grip
 MKDIR_P=mkdir -p
 
+MODULES=modules/
+OUTPUT=output/
+
 EXPECT_REPO=https://github.com/mjackson/expect
+EXPECT_SOURCE=$(MODULES)expect/
+EXPECT_DEST=$(OUTPUT)expect/
 
 ENZYME_REPO=https://github.com/airbnb/enzyme
+ENZYME_SOURCE=$(MODULES)enzyme/
+ENZYME_OUTPUT=$(OUTPUT)enzyme/
 
 IMMUTABLE_REPO=https://github.com/facebook/immutable-js
+IMMUTABLE_SOURCE=$(MODULES)immutable-js/
+IMMUTABLE_DEST=$(OUTPUT)immutable-js/
 
 MOCHA_REPO=https://github.com/mochajs/mochajs.github.io
 MOCHA_SOURCE=modules/mochajs.github.io
@@ -146,3 +155,13 @@ $(WEBPACK_SOURCE)/build: $(WEBPACK_SOURCE)/
 
 $(MDN_DEST): $(MDN_SOURCE)
 	ln -s $(CURDIR)/$(MDN_SOURCE) _output/.
+
+foo: $(MOCHA_SOURCE) $(EXPECT_SOURCE) $(ENZYME_SOURCE) $(IMMUTABLE_SOURCE)
+
+$(MOCHA_SOURCE)/: URL=$(MOCHA_REPO)
+$(EXPECT_SOURCE): URL=$(EXPECT_REPO)
+$(ENZYME_SOURCE): URL=$(ENZYME_REPO)
+$(IMMUTABLE_SOURCE): URL=$(IMMUTABLE_REPO)
+
+$(MOCHA_SOURCE) $(EXPECT_SOURCE) $(ENZYME_SOURCE) $(IMMUTABLE_SOURCE):
+	git clone $(URL) $@
