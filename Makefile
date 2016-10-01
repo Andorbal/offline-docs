@@ -1,22 +1,32 @@
 GRIP=python -m grip
 MKDIR_P=mkdir -p
 
-MOCHA_SOURCE=mochajs.github.io
+MOCHA_REPO=https://github.com/mochajs/mochajs.github.io
+MOCHA_SOURCE=modules/mochajs.github.io
 MOCHA_DEST=_output/mochajs
+
+MOMENT_REPO=https://github.com/mochajs/mochajs.github.io
 MOMENT_SOURCE=momentjs.com
 MOMENT_DEST=_output/momentjs
+
 NORMALIZR_SOURCE=normalizr
 NORMALIZR_DEST=_output/normalizr
+
 REACT_SOURCE=react/docs
 REACT_DEST=_output/react
+
 REDUX_SOURCE=redux
 REDUX_DEST=_output/redux
+
 REDUXAPI_SOURCE=redux-api-middleware
 REDUXAPI_DEST=_output/redux-api-middleware
+
 RESELECT_SOURCE=reselect
 RESELECT_DEST=_output/reselect
+
 WEBPACK_SOURCE=webpack.js.org
 WEBPACK_DEST=_output/webpack
+
 MDN_SOURCE=mdn
 MDN_DEST=_output/mdn
 
@@ -71,8 +81,12 @@ $(MOCHA_DEST)/index.html: $(MOCHA_SOURCE)/_site
 	cp -R $(MOCHA_SOURCE)/_site/* $(MOCHA_DEST)
 
 $(MOCHA_SOURCE)/_site: $(MOCHA_SOURCE)/
+	bundle install --gemfile ./$(MOCHA_SOURCE)/Gemfile
 	npm --prefix ./$(MOCHA_SOURCE) install
 	npm --prefix ./$(MOCHA_SOURCE) start build
+
+$(MOCHA_SOURCE)/:
+	git clone $(MOCHA_REPO) $(MOCHA_SOURCE)
 
 $(MOMENT_DEST)/index.html: $(MOMENT_SOURCE)/build
 	$(MKDIR_P) $(MOMENT_DEST)
